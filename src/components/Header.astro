@@ -1,7 +1,7 @@
 ---
 interface Props { theme?: 'light' | 'dark' | 'editorial'; }
 const { theme = 'light' } = Astro.props;
-const links=[{href:'/',label:'Home'},{href:'/studio/',label:'Studio'},{href:'/services/',label:'Services'},{href:'/journal/',label:'Journal'},{href:'/contact/',label:'Contact'}];
+const links=[{href:'/',label:'Home'},{href:'/services/',label:'Services'},{href:'/journal/',label:'Journal'},{href:'/contact/',label:'Contact'}];
 const path=Astro.url.pathname;
 ---
 <a class="skip-link" href="#main-content">Skip to content</a><header class:list={['site-header', { 'site-header-dark': theme === 'dark' }]}><a class="brand" href="/" aria-label="Chill e Guy home">chill e guy</a><nav aria-label="Main navigation">{links.map(link=><a href={link.href} aria-current={(link.href === '/' ? path === '/' : path.startsWith(link.href))?'page':undefined}>{link.label}</a>)}</nav><span class="location"><i aria-hidden="true"></i> NYC / EVERYWHERE</span></header>
