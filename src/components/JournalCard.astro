@@ -1,0 +1,9 @@
+---
+interface Props { title: string; description: string; category: string; readTime: string; href: string; compact?: boolean; }
+const { title, description, category, readTime, href, compact = false } = Astro.props;
+const image = category === 'Technology' ? '/images/ai-cube.png' : category === 'Entertainment' ? '/images/cinema.jpg' : '/images/palms.jpg';
+---
+<a class:list={['journal-card', { compact }]} href={href}>
+ <img src={image} alt="" width="900" height="600" loading="lazy" decoding="async" />
+ <div class="journal-info"><div class="eyebrow">{category} · {readTime}</div><h3>{title}</h3>{!compact && <p>{description}</p>}<span class="text-link">Read article <span aria-hidden="true">↗</span></span></div>
+</a>

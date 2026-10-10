@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StudioFeature from '../components/studio/StudioFeature.astro';
+import AccentStroke from '../components/AccentStroke.astro';
+import '../styles/studio.css';
+const worlds = [
+  { title: 'Technology', image: '/images/studio-laptop.png', description: "Because new technology changes what's possible." },
+  { title: 'Entertainment', image: '/images/concert.jpg', description: 'Because stories shape how we see the world.' },
+  { title: 'Digital Culture', image: '/images/studio-subway.png', description: 'Because ideas spread, communities form, and culture moves.' },
+];
+---
+<Layout title="Studio — Chill e Guy" description="Small studio. Big curiosity. A creative consultancy exploring technology, entertainment, and digital culture." bodyClass="studio-page">
+  <Header theme="dark" />
+  <main id="main-content" class="studio-main">
+    <section class="studio-hero">
+      <img class="studio-hero-image" src="/images/studio-subway.png" alt="A listener in headphones beside a moving subway train" width="1536" height="1024" fetchpriority="high" decoding="async" />
+      <div class="studio-hero-copy"><h1>Small studio.<br />Big curiosity.</h1>
+      
+      <p>We help ambitious teams find the story behind what they're building — and turn it into something people can understand, remember, and care about.</p>
+      <p class="studio-location">New York <span>·</span> Everywhere</p></div>
+    </section>
+    <StudioFeature image="/images/studio-architecture.png" alt="A person walking through a diagonal shaft of sunlight across a concrete wall" className="studio-belief">
+      <h2>Great ideas<br />deserve<br />great stories.</h2>
+      <div class="studio-belief-body"><p>The world doesn't need more noise.<br />It needs ideas with a point of view.</p><p>Stories worth remembering.<br />Experiences worth exploring.</p></div>
+      
+    </StudioFeature>
+    <section class="studio-chain">
+      <div class="studio-chain-copy"><h2>Ideas → Stories →<br />People → Culture</h2>
+      <p>Everything starts with an idea.<br />But ideas become meaningful<br />when they turn into stories.</p>
+      <p>Stories connect with people.<br />And people create culture.</p><p>That's the space we like to work in.</p></div>
+      <div class="studio-chain-image"><img src="/images/hero-editorial.png" alt="Back of a dark jacket overlooking the city" width="1122" height="1402" loading="lazy" /><span class="studio-jacket-words" aria-hidden="true">Ideas<br />Stories<br />People<br />Culture</span><AccentStroke /></div>
+    </section>
+    <section class="studio-curiosity">
+      <div class="studio-curiosity-intro"><h2>Curious<br />by nature.</h2><p>We're drawn to places where creativity and technology collide.</p><hr /></div>
+      <div class="studio-world-grid">{worlds.map(world => <article class="studio-world"><img src={world.image} alt="" width="900" height="600" loading="lazy" /><h3>{world.title}</h3><p>{world.description}</p></article>)}<p class="studio-world-closing">Different worlds. Same curiosity.</p></div>
+    </section>
+    <section class="studio-attitude"><img src="/images/studio-laptop.png" alt="A silver laptop illuminated by chartreuse light" width="1536" height="1024" loading="lazy" /><div><h2>Relaxed attitude.<br />Serious creative<br />thinking.</h2><p>No agency theater.<br />Just good ideas and better conversations.</p></div></section>
+    <section class="studio-conversation"><img src="/images/studio-architecture.png" alt="A person walking along a sunlit concrete wall" width="1536" height="1024" loading="lazy" /><div><h2>Good ideas usually start<br />with a conversation.</h2><p>Have something you're building, exploring,<br />or still trying to figure out?</p><a class="button button-accent" href="/contact/">Start a conversation <span aria-hidden="true">→</span></a></div></section>
+  </main>
+  <Footer />
+</Layout>

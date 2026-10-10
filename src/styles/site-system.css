@@ -1,0 +1,21 @@
+/* Shared navigation and typography, using the Home's font roles. */
+:root{--font-display:Anton,Impact,sans-serif;--font-body:Arial,Helvetica,sans-serif;--font-label:'Courier New',monospace}
+body .site-header.site-header{position:relative;inset:auto;width:min(var(--max),100%);margin:0 auto;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:32px;padding:28px var(--gutter);background:var(--bg);color:var(--ink);min-height:80px}
+body .site-header.site-header .brand{font-family:var(--font-body);font-weight:900;font-size:23px;line-height:1;letter-spacing:-.055em;text-transform:none;color:inherit}
+body .site-header.site-header nav{display:flex;align-items:center;justify-content:space-between;gap:32px;width:auto;font-family:var(--font-body);font-size:11px;font-weight:400;letter-spacing:0;line-height:1.5;text-transform:uppercase;flex-wrap:nowrap}
+body .site-header.site-header nav a{color:inherit;padding:0 0 4px;border-bottom:1px solid transparent;white-space:nowrap}
+body .site-header.site-header nav a:hover,body .site-header.site-header nav a[aria-current=page]{border-color:var(--accent)}
+body .site-header.site-header .location{display:none}
+body .site-footer .brand{text-transform:none;font-family:var(--font-body)}
+body:is(.studio-page,.services-page,.journal-page,.contact-page){font-family:var(--font-body)}
+body:is(.studio-page,.services-page,.journal-page,.contact-page) main :is(h1,h2){font-family:var(--font-display);font-weight:400;letter-spacing:-.025em}
+body .studio-world h3{font-family:var(--font-display);font-weight:400;letter-spacing:-.025em}
+body :is(.studio-number,.studio-location,.services-kicker,.service-pillar-tags,.services-hero-tags,.journal-kicker,.contact-kicker,.contact-detail h3,.contact-form label,.journal-page .eyebrow){font-family:var(--font-label);font-weight:400}
+body .contact-alternative h2{font-family:var(--font-body);font-weight:600;letter-spacing:-.02em}
+body .studio-hero-copy{padding-top:35px}
+body .services-hero-copy{padding-top:35px}
+body .contact-intro-copy{padding-top:35px}
+@media(max-width:850px){body .site-header.site-header{gap:24px}body .site-header.site-header nav{gap:22px;font-size:10px}}
+@media(max-width:600px){body .site-header.site-header{flex-direction:column;align-items:flex-start;gap:24px;padding:24px;min-height:0}body .site-header.site-header nav{width:100%;gap:10px;font-size:10px}body .site-header.site-header .brand{font-size:23px}body .studio-hero-copy,body .services-hero-copy,body .contact-intro-copy{padding-top:32px}}
+body .site-header.site-header nav a:last-child{color:inherit}
+body.contact-page main .contact-alternative h2{font-family:var(--font-body);font-weight:600;letter-spacing:-.02em}

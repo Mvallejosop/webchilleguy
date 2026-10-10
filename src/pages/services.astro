@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServicePillar from '../components/services/ServicePillar.astro';
+import { serviceDetails } from '../data/serviceDetails';
+import '../styles/dark-shell.css';
+import '../styles/services.css';
+---
+<Layout title="Services — Chill e Guy" description="Find the story. Make it visual. Make people care. Strategy, brand, digital, content, and launch." bodyClass="services-page">
+  <Header theme="dark" />
+  <main id="main-content" class="services-main">
+    <section class="services-hero"><img src="/images/studio-architecture.png" alt="A person walking through sunlight along a concrete wall" width="1536" height="1024" fetchpriority="high" decoding="async" /><div class="services-hero-copy"><p class="services-kicker">Services</p><h1>Find the story.<br />Make it visual.<br />Make people care.</h1><p class="services-hero-tags">Strategy <span>·</span> Brand <span>·</span> Digital <span>·</span> Content <span>·</span> Launch</p></div></section>
+    {serviceDetails.map(service => <ServicePillar {...service} />)}
+    <section class="services-entry" aria-labelledby="services-entry-title"><div class="services-entry-heading"><h2 id="services-entry-title">Start where you need us.</h2></div><div class="services-entry-grid">{serviceDetails.map(service => <a href={`#${service.id}`}><span class="entry-line" aria-hidden="true"></span><h3>{service.title}<span aria-hidden="true">→</span></h3><p>{service.prompt}</p></a>)}</div></section>
+    <section class="services-conversation"><img src="/images/studio-architecture.png" alt="A person walking beside a concrete wall in a beam of sunlight" width="1536" height="1024" loading="lazy" decoding="async" /><div><h2>What does your<br />idea need next?</h2><p>Tell us what you're building.</p><a class="button button-accent" href="/contact/">Start a conversation <span aria-hidden="true">→</span></a></div></section>
+  </main>
+  <Footer />
+</Layout>

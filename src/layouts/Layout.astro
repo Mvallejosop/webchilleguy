@@ -1,0 +1,36 @@
+---
+import ScrollReveal from '../components/ScrollReveal.astro';
+import '../styles/global.css';
+import '../styles/site-system.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  bodyClass?: string;
+}
+
+const {
+  bodyClass = '',
+  title = 'Chill e Guy — Creative Consulting & Brand Storytelling',
+  description = 'Chill e Guy turns complex ideas into stories people understand, remember, and care about.'
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content={['studio-page', 'services-page'].includes(bodyClass) ? '#080808' : '#F3F1EC'} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="preload" href="/anton.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+  </head>
+  <body class={bodyClass}>
+    <slot />
+    <ScrollReveal />
+  </body>
+</html>

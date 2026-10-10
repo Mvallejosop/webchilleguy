@@ -1,0 +1,12 @@
+---
+interface Props { id: string; title: string; intro: string; items: string[]; tags: string[]; image: string; alt: string; }
+const { id, title, intro, items, tags, image, alt } = Astro.props;
+---
+<section class="service-pillar" id={id} aria-labelledby={`${id}-title`}>
+  <img class="service-pillar-image" src={image} alt={alt} width="1536" height="1024" loading="lazy" decoding="async" />
+  <div class="service-pillar-copy"><span class="service-accent-line" aria-hidden="true"></span>
+    <h2 id={`${id}-title`}>{title}</h2><p class="service-pillar-intro">{intro}</p>
+    <ul class="service-deliverables">{items.map(item => <li>{item}</li>)}</ul>
+    <div class="service-pillar-tags" aria-label="Service areas">{tags.map(tag => <span>{tag}</span>)}</div>
+  </div>
+</section>

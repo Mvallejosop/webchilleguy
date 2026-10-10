@@ -1,0 +1,7 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import JournalCard from './JournalCard.astro';
+import { getCollection } from 'astro:content';
+const posts=(await getCollection('journal')).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,3);
+---
+<section class="home-journal mockup-section" aria-label="The Chill e Guy Journal"><div class="journal-side"><SectionLabel number="05" label="The Journal" /><p>Ideas on technology,<br />entertainment, and<br />digital culture.</p><a class="text-link" href="/journal/">Explore the Journal <span aria-hidden="true">→</span></a></div><div class="journal-grid">{posts.map(post=><JournalCard {...post.data} href={`/journal/${post.id}/`} compact />)}</div><a class="journal-next" href="/journal/" aria-label="Explore all Journal articles">→</a></section>

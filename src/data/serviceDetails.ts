@@ -1,0 +1,5 @@
+export const serviceDetails = [
+  { id: 'find-the-story', title: 'Find the Story', intro: 'Turn the idea into a clear story.', items: ['Strategy & Positioning', 'Brand Narrative', 'Messaging', 'Creative Direction'], tags: ['Strategy', 'Positioning', 'Narrative', 'Messaging'], image: '/images/services-story.png', alt: 'A creative director studying a wall of storyboards and photographic references', prompt: 'Need clarity?' },
+  { id: 'make-it-visual', title: 'Make It Visual', intro: 'Give the story a world.', items: ['Brand Identity', 'Web & Digital', 'Design & Content', 'Motion'], tags: ['Brand', 'Web', 'Digital', 'Design', 'Motion'], image: '/images/studio-laptop.png', alt: 'A silver laptop illuminated by chartreuse light', prompt: 'Need a creative world?' },
+  { id: 'make-people-care', title: 'Make People Care', intro: 'Bring the story to people.', items: ['Launch', 'Campaigns', 'Content', 'Audience'], tags: ['Launch', 'Campaigns', 'Content', 'Audience'], image: '/images/services-filmmaker.png', alt: 'A filmmaker operating a camera on a set lit in deep orange', prompt: 'Ready to put it out there?' },
+];

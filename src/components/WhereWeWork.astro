@@ -1,0 +1,5 @@
+---
+import SectionLabel from './SectionLabel.astro';
+const worlds=[{title:'Technology',tags:['Startups','AI','Digital Products','Emerging Tech'],src:'/images/technology.jpg'},{title:'Entertainment',tags:['Film','Games','Creators','New Storytelling'],src:'/images/concert.jpg'},{title:'Digital Culture',tags:['Internet','Communities','Digital Experiences','Culture'],src:'/images/headphones.jpg'}];
+---
+<section class="worlds mockup-section"><div class="world-heading"><SectionLabel number="04" label="Where we work" /><h2>Where ideas<br />meet culture.</h2></div><div class="world-grid">{worlds.map((world,i)=><article class:list={['world-tile',{'warm':i===1}]}><img src={world.src} alt="" width="1000" height="800" loading="lazy" /><div><h3>{world.title}</h3><ul>{world.tags.map(tag=><li>{tag}</li>)}</ul></div></article>)}</div></section>

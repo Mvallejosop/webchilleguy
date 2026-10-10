@@ -1,0 +1,6 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import { services } from '../data/services';
+const images = ['/images/culture.jpg', '/images/hero-editorial.png', '/images/concert.jpg'];
+---
+<section class="what-we-do mockup-section"><SectionLabel number="03" label="What we do" /><div class="service-cards">{services.map((service,i) => <a class="service-card" href={`/services/#${service.id}`}><div class="service-art"><img src={images[i]} alt="" width="800" height="500" loading="lazy" /><span class="service-number" aria-hidden="true">{service.number}</span></div><h2>{i===0 ? <>Find<br />the story.</> : i===1 ? <>Make<br />it visual.</> : <>Make people<br />care.</>}</h2><p>{service.tags}</p><span class="service-arrow" aria-hidden="true">→</span></a>)}</div></section>

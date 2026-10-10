@@ -1,0 +1,55 @@
+<script>
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!motion.matches && 'IntersectionObserver' in window) {
+    const candidates = [...document.querySelectorAll<HTMLElement>('main h2, main h3, main p, main .section-label, main .hero-actions, main .service-deliverables, main .service-pillar-tags, main .services-entry-grid > a, main .journal-info, main .contact-detail')];
+    const blocks = candidates.filter(element => {
+      // Groups animate together; the first screen and interactive form stay visible.
+      if (element.closest('form, .hero-copy, .studio-hero-copy, .services-hero-copy, .contact-intro-copy, .journal-heading, .page-hero')) return false;
+      if (candidates.some(parent => parent !== element && parent.contains(element))) return false;
+      return element.getBoundingClientRect().top >= window.innerHeight;
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
+    blocks.forEach(element => {
+      element.classList.add('scroll-reveal');
+      observer.observe(element);
+    });
+    const revealAll = () => {
+      blocks.forEach(element => element.classList.add('reveal-visible'));
+      observer.disconnect();
+    };
+    motion.addEventListener('change', event => { if (event.matches) revealAll(); });
+    // Anchor destinations remain visible immediately when reached by navigation.
+    window.addEventListener('hashchange', () => {
+      const id = decodeURIComponent(location.hash.slice(1));
+      const target = document.getElementById(id);
+      blocks.forEach(element => {
+        if (target && (target === element || target.contains(element))) {
+          element.classList.add('reveal-visible');
+          observer.unobserve(element);
+        }
+      });
+    });
+    document.addEventListener('focusin', event => {
+      const target = event.target;
+      if (target instanceof Element) {
+        const block = target.closest('.scroll-reveal');
+        if (block) { block.classList.add('reveal-visible'); observer.unobserve(block); }
+      }
+    });
+  }
+</script>
+<style is:global>
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-reveal { opacity: 0; transform: translateY(12px); transition: opacity 550ms ease, transform 550ms ease; }
+    .scroll-reveal.reveal-visible { opacity: 1; transform: none; }
+    .scroll-reveal:focus-within { opacity: 1; transform: none; }
+  }
+  @media print { .scroll-reveal { opacity: 1 !important; transform: none !important; } }
+</style>

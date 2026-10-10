@@ -1,0 +1,8 @@
+---
+interface Props { image: string; alt: string; reversed?: boolean; className?: string; }
+const { image, alt, reversed = false, className = '' } = Astro.props;
+---
+<section class:list={['studio-feature', className, { reversed }]}>
+  <div class="studio-feature-image"><img src={image} alt={alt} width="1536" height="1024" loading="lazy" /></div>
+  <div class="studio-feature-copy"><slot /></div>
+</section>

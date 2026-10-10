@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactForm from '../components/contact/ContactForm.astro';
+import '../styles/contact.css';
+---
+<Layout title="Contact — Chill e Guy" description="Tell us about your project, your idea or just say hello." bodyClass="contact-page">
+  <Header theme="editorial" />
+  <main id="main-content">
+    <section class="contact-intro" aria-labelledby="contact-title">
+      <img src="/images/studio-architecture.png" alt="A person walking beside a concrete wall in light and shadow" width="1536" height="1024" fetchpriority="high" />
+      <div class="contact-intro-copy"><p class="contact-kicker">Contact</p><h1 id="contact-title">Let’s turn<br />good ideas<br />into something<br />real.</h1><p>Tell us about your project, your idea or just say hello. We’d love to hear from you.</p></div>
+    </section>
+    <section class="contact-details" aria-label="Get in touch">
+      <ContactForm />
+      <aside class="contact-alternative"><h2>Prefer another way?</h2><div class="contact-detail"><h3>Email</h3><a href="mailto:hello@chilleguy.com">hello@chilleguy.com</a></div><div class="contact-detail"><h3>Location</h3><p>New York City<br />and surrounding areas</p></div><div class="contact-detail"><h3>Social</h3><div class="contact-social"><a href="https://www.linkedin.com/company/offside-spa/about/?viewAsMember=true">LinkedIn</a><a href="https://www.instagram.com/itschilleguy/">Instagram</a></div></div><p class="contact-response">We usually reply within 1–2 business days.</p></aside>
+    </section>
+    <section class="contact-closing" aria-labelledby="contact-closing-title"><img src="/images/studio-architecture.png" alt="" width="1536" height="1024" loading="lazy" /><div><h2 id="contact-closing-title">Good ideas<br />start<br />conversations.</h2><p>We’re always open to new projects,<br />collaborations and interesting people.</p></div></section>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,19 @@
+---
+interface Props { number: string; label: string; }
+const { number, label } = Astro.props;
+const isStudioDescriptor = label === 'Creative Consulting & Brand Storytelling';
+---
+<div class="section-label">
+  <span>{number}</span>
+  <p>
+    {isStudioDescriptor ? (
+      <><span class="descriptor-line">Creative Consulting &amp;</span><span class="descriptor-line">Brand Storytelling</span></>
+    ) : label}
+  </p>
+</div>
+<style>
+  .descriptor-line {
+    display: block;
+    white-space: nowrap;
+  }
+</style>

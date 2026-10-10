@@ -1,0 +1,7 @@
+---
+interface Props { number: string; id: string; title: string; tags: string; description: string; }
+const { number, id, title, tags, description } = Astro.props;
+---
+<article class="service-row" id={id}>
+ <span class="eyebrow">{number}</span><div><h3><a href={`/services/#${id}`}>{title}</a></h3><p class="service-tags">{tags}</p><p class="service-description">{description}</p></div><span class="row-arrow" aria-hidden="true">↗</span>
+</article>
